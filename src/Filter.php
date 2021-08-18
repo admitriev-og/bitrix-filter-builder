@@ -68,6 +68,20 @@ class Filter
         return $this;
     }
 
+    public function lte($field, $value): self
+    {
+        $this->filter['<=' . $field] = $min;
+
+        return $this;
+    }
+
+    public function gte($field, $value): self
+    {
+        $this->filter['>=' . $field] = $min;
+
+        return $this;
+    }
+
     public function addOrFilter(Filter $filter): self
     {
         $this->filter[] = [
