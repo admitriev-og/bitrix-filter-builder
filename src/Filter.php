@@ -13,7 +13,7 @@ class Filter
 
     public function eq($field, $value): self
     {
-        $this->filter['=' . $field] = $value;
+        $this->filter[$field] = $value;
 
         return $this;
     }
@@ -27,7 +27,7 @@ class Filter
 
     public function like($field, $value): self
     {
-        $this->filter['=%' . $field] = $value;
+        $this->filter[$field] = $value;
 
         return $this;
     }
@@ -84,10 +84,7 @@ class Filter
 
     public function addOrFilter(Filter $filter): self
     {
-        $this->filter[] = [
-            'LOGIC' => 'OR',
-            $filter->getResult()
-        ];
+        $this->filter[] = array_merge([ 'LOGIC' => 'OR'], $filter->getResult());
 
         return $this;
     }
