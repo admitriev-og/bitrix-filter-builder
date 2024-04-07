@@ -13,7 +13,7 @@ class Filter implements \JsonSerializable
 
     public function eq($field, $value): self
     {
-        $this->filter['=' . $field] = $value;
+        $this->filter[$field] = $value;
 
         return $this;
     }
