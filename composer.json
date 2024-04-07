@@ -1,15 +1,15 @@
 {
-    "name": "vsavritsky/bitrix-filter-builder",
-    "description": "Библиотека для простого создания фильтра",
-    "type": "library",
-    "require": {
-    	"php": ">=7.1"
-    },
-    "minimum-stability": "stable",
-    "autoload": {
-        "psr-4": {
-            "BitrixFilterBuilder\\": "src"
-        }
+  "name": "vsavritsky/bitrix-filter-builder",
+  "description": "Библиотека для простого создания фильтра",
+  "type": "library",
+  "require": {
+    "php": ">=7.1",
+    "ext-json": "*"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "BitrixFilterBuilder\\": "src"
     }
-    
+  }
 }
