@@ -27,7 +27,7 @@ class Filter implements \JsonSerializable
 
     public function like($field, $value): self
     {
-        $this->filter[$field] = $value;
+        $this->filter[$field] = '{$value}';
 
         return $this;
     }
@@ -99,6 +99,27 @@ class Filter implements \JsonSerializable
     public function addOrFilter(Filter $filter): self
     {
         $this->filter[] = array_merge(['LOGIC' => 'OR'], $filter->getResult());
+
+        return $this;
+    }
+
+    public function addAndFilter(Filter $filter): self
+    {
+        $this->filter[] = array_merge(['LOGIC' => 'AND'], $filter->getResult());
+
+        return $this;
+    }
+
+    public function mergeWithFilter(Filter $filter): self
+    {
+        $this->filter = array_merge($this->filter, $filter->getResult());
+
+        return $this;
+    }
+
+    public function setFilterLogic(string $logic): self
+    {
+        $this->filter['LOGIC'] = $logic;
 
         return $this;
     }
