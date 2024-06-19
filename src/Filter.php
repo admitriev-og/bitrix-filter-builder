@@ -77,7 +77,7 @@ class Filter implements \JsonSerializable
 
     public function gte($field, $value): self
     {
-        $this->filter['>' . $field] = $value;
+        $this->filter['>=' . $field] = $value;
 
         return $this;
     }
@@ -91,7 +91,7 @@ class Filter implements \JsonSerializable
 
     public function gt($field, $value): self
     {
-        $this->filter['>=' . $field] = $value;
+        $this->filter['>' . $field] = $value;
 
         return $this;
     }
@@ -106,6 +106,13 @@ class Filter implements \JsonSerializable
     public function addAndFilter(Filter $filter): self
     {
         $this->filter[] = array_merge(['LOGIC' => 'AND'], $filter->getResult());
+
+        return $this;
+    }
+
+    public function addSubFilter(Filter $filter): self
+    {
+        $this->filter[] = $filter->getResult();
 
         return $this;
     }
