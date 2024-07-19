@@ -27,7 +27,14 @@ class Filter implements \JsonSerializable
 
     public function like($field, $value): self
     {
-        $this->filter[$field] = '{$value}';
+        $this->filter['%' . $field] = $value;
+
+        return $this;
+    }
+
+    public function notLike($field, $value): self
+    {
+        $this->filter['!%' . $field] = $value;
 
         return $this;
     }
