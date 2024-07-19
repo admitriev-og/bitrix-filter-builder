@@ -29,7 +29,7 @@ $filter->neq('ID', 2);
 $filter = ['!ID' => 2];
 ```
 
-like($field, $value) - Поиск по подсроке
+like($field, $value) - Поиск по подстроке
 ```
 $filter->like('NAME', 'товар');
 
