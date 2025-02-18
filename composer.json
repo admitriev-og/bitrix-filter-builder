@@ -1,5 +1,5 @@
 {
-  "name": "vsavritsky/bitrix-filter-builder",
+  "name": "ogdev/bitrix-filter-builder",
   "description": "Библиотека для простого создания фильтра",
   "type": "library",
   "require": {
